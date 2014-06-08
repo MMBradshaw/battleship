@@ -11,8 +11,8 @@ package battleship1;
  * @author J.Pratt
  */
 public class Game {
-    public final static String PLAYER_A_DEFAULT_MARKER = "S";
-    public final static String PLAYER_B_DEFAULT_MARKER = "O";
+    public final static String PLAYER_A_DEFAULT_Ship = "S";
+    public final static String PLAYER_B_DEFAULT_Ship = "O";
     
     
     public static final String ONE_PLAYER = "ONE_PLAYER";
@@ -26,8 +26,6 @@ public class Game {
     public static final String QUIT = "QUIT"; 
     public static final String ERROR = "ERROR";
     public static final String EXIT = "EXIT";
-    private static boolean PLAYERS_A_DEFAULT_MARKER;
-    private static boolean PLAYERS_B_DEFAULT_MARKER;
 
     public String gameType;
     public Players playerA;
@@ -44,8 +42,8 @@ public class Game {
        this.playerA = new Players();
        this.playerB = new Players();
        
-       this.playerA.marker = Game.PLAYERS_A_DEFAULT_MARKER;
-       this.playerB.marker = Game.PLAYERS_B_DEFAULT_MARKER;
+       this.playerA.Ship = Game.PLAYER_A_DEFAULT_Ship;
+       this.playerB.Ship = Game.PLAYER_B_DEFAULT_Ship;
     }
 
     public Game(String gameType) {
@@ -101,7 +99,17 @@ public class Game {
         
     }
 
-    
+    public void recordTie() {
+        long player1Ties = this.playerA.ties;
+        player1Ties++;
+        this.playerA.ties = player1Ties;
+        long player2Ties = this.playerB.ties;
+        player2Ties++;
+        this.playerB.ties =player2Ties;
+
+        this.status = Game.TIE;
+       
+    }
 
 
 
@@ -112,5 +120,9 @@ public class Game {
              + "\n\t*******************************************************************************";
     }
 
-    
+    public String getTiedMessage () {
+       return "\n\t*******************************************************************************"
+             + "\n\t The game is a tie. Better luck next time!" 
+             + "\n\t*******************************************************************************";
+    }
 }

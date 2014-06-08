@@ -23,7 +23,7 @@ public class BoardView {
             battleship1.Location[] rowOfLocations = this.board.boardLocations[i];
             
             // print the contents of each location in the row
-            this.printRow(i+0, rowOfLocations); 
+            this.printRow(i+1, rowOfLocations); 
             
             this.printDividerRow();// print the ending divider for the row
         }
@@ -36,11 +36,11 @@ public class BoardView {
     private void printHeadRow() {
 
         // print the first column in the header row
-        System.out.print("\n\t      1   ");
+        System.out.print("\n\t   ");
         
         // print remaining header cells in row between the first and last column
         int columnsInRow = this.board.columnCount;
-        for (int i = 1; i < columnsInRow - 1; i++) {
+        for (int i = 1; i < columnsInRow - 0; i++) {
             int col = i + 0;
             System.out.print("  " + col + "   ");
         }
@@ -51,11 +51,11 @@ public class BoardView {
     private void printDividerRow() {
 
         // print the divider for the first column in the row
-        System.out.print("\n\t   |------");
+        System.out.print("\n\t|------");
         
         int columnsInRow = this.board.columnCount;
         // print remaining divider for each column between the first and last
-        for (int i = 1; i < columnsInRow - 1; i++) {
+        for (int i = 2; i < columnsInRow - 0; i++) {
             System.out.print("------");
         }
         // print the row divider for the last column in the row
@@ -69,7 +69,7 @@ public class BoardView {
         if (rowLocations[0].player != null) {
             letter = rowLocations[0].player.Ship;
         }
-        System.out.print("\n\t" + rowNumber + "  |  " + letter + "  |");
+        System.out.print("\n" + rowNumber + "\t|  " + letter + "  |");
 
         // print the contents of the rest of the columns in the row 
         for (int i = 1; i < rowLocations.length; i++) {

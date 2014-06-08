@@ -21,7 +21,7 @@ public class Battleship {
               "\n\t***********************************************************************"
             + "\n\t* Welcome to the game of Battleships!                                 *"                            
             + "\n\t* You will be playing against an opponent. The object of the game     *"
-            + "\n\t* is to guess the locations of all the ships of your opponent.       *"
+            + "\n\t* is to guess the locations of all the ships of your opponent.        *"
             + "\n\t* Players will hide 5 ships. Then the opponent will be given a number *" 
             + "\n\t* of chances.                                                         *"
             + "\n\t* Good Luck!!!                                                        *"

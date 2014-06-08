@@ -11,32 +11,39 @@ package battleship1;
  * @author J.Pratt
  */
 public class Players {
-    
     public static final String REGULAR_PLAYER = "REGULAR";
     public static final String COMPUTER_PLAYER = "COMPUTER"; 
     
-    String name;
-    String alias;
-    long wins = 0;
-    long losses = 0;
-    String gender;
-    double age = 0;
-    boolean marker;
-    long ties;
-    String Ship;
-        
+    public String name;
+    public double age;
+    public String playerType;
+    public long wins = 0;
+    public long losses = 0;
+    public long ties = 0;
+    public String Ship;
     
-    public Players() {    
-}
 
-    Players(String REGULAR_PLAYER, String PLAYER_A_DEFAULT_MARKER) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Players() {
     }
 
-    public void displayName() {
-        System.out.println("\t\tAhoy! Me name is " + this.name);
+    public Players(String playerType, String Ship) {
+        this.playerType = playerType;
+        this.Ship = Ship;
+    } 
+
+    public String getPlayerStastics() {
+        String playerStatistics = 
+                this.name + " has won "
+                + this.getWinningPercentage(this.wins, this.losses, this.ties) + "% of the games."
+                + "\n\t" + this.wins + " wins, "
+                + this.losses + " losses and "
+                + this.ties + " ties.";
+        
+        return playerStatistics;
     }
-    public double getWinningPercentage() {
+
+    
+    public double getWinningPercentage(long wins, long losses, long ties) {
      
         if (wins < 0 ) {
             System.out.println("\n\tThe number of wins must be "
@@ -49,8 +56,14 @@ public class Players {
                     + "greater than or equal to zero.");
             return -999;
         }
-                
-        double totalScore = wins + losses;
+        
+        if (ties < 0 ) {
+            System.out.println("\n\tThe number of ties must be "
+                    + "greater than or equal to zero.");
+            return -999;
+        }
+        
+        double totalScore = wins + losses + ties;
         
         if (totalScore ==  0) {
             return 0;
@@ -60,4 +73,5 @@ public class Players {
         return winLossRatio * 100;
     }
 
+    
 }

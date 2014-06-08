@@ -8,7 +8,7 @@ package battleship1;
 
 /**
  *
- * @author Niethy
+ * @author mBradshaw
  */
 class Instructions {
 

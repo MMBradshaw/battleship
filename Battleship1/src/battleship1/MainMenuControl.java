@@ -14,7 +14,6 @@ import java.util.Scanner;
  */
 class MainMenuControl {
 
-       
     public void startGame(long noPlayers) {
                 
         if (noPlayers != 1  &&  noPlayers != 2) {
@@ -49,23 +48,23 @@ class MainMenuControl {
         switch (gameType) {
             case Game.ONE_PLAYER:
                 game = new Game(Game.ONE_PLAYER);
-                playerA = new Players(Players.REGULAR_PLAYER, Game.PLAYER_A_DEFAULT_MARKER);
+                playerA = new Players(Players.REGULAR_PLAYER, Game.PLAYER_A_DEFAULT_Ship);
                 playerA.name = "Player 1";
-                playerB = new Players(Players.COMPUTER_PLAYER, Game.PLAYER_B_DEFAULT_MARKER);
+                playerB = new Players(Players.COMPUTER_PLAYER, Game.PLAYER_B_DEFAULT_Ship);
                 playerB.name = "Computer";
                 break;
             case Game.TWO_PLAYER:
                 game = new Game(Game.TWO_PLAYER);
-                playerA = new Players(Players.REGULAR_PLAYER, Game.PLAYER_A_DEFAULT_MARKER);
+                playerA = new Players(Players.REGULAR_PLAYER, Game.PLAYER_A_DEFAULT_Ship);
                 playerA.name = "Player 1";
-                playerB = new Players(Players.REGULAR_PLAYER, Game.PLAYER_B_DEFAULT_MARKER);
+                playerB = new Players(Players.REGULAR_PLAYER, Game.PLAYER_B_DEFAULT_Ship);
                 playerB.name = "Player 2";
                 break;
         }
 
-        // set default markers for each player
-        //playerA.marker = Game.PLAYER_A_DEFAULT_MARKER;
-        //playerB.marker = Game.PLAYER_B_DEFAULT_MARKER;
+        // set default Ships for each player
+        playerA.Ship = Game.PLAYER_A_DEFAULT_Ship;
+        playerB.Ship = Game.PLAYER_B_DEFAULT_Ship;
         
         // save the two players created as the default players of the game
         game.playerA = playerA;
@@ -97,5 +96,4 @@ class MainMenuControl {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.getInput();
     }
-    
 }
