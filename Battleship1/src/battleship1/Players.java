@@ -73,5 +73,9 @@ public class Players {
         return winLossRatio * 100;
     }
 
+    void displayName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
 }
